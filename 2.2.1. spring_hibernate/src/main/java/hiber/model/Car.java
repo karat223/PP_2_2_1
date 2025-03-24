@@ -7,16 +7,29 @@ import javax.persistence.*;
 public class Car {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Column(name = "id")
+     int id;
      @Column(name = "series")
     int series;
      @Column(name = "model")
     String model;
+    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
+    private User user;
 
     public Car() {
     }
 
-    public Car(String model) {
+    public Car(int series, String model) {
+        this.series = series;
         this.model = model;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getSeries() {
