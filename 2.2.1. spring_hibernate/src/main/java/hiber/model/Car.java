@@ -5,14 +5,14 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cars")
 public class Car {
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     @Column(name = "id")
-     int id;
-     @Column(name = "series")
-    int series;
-     @Column(name = "model")
-    String model;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "series")
+    private int series;
+    @Column(name = "model")
+    private String model;
     @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
     private User user;
 
